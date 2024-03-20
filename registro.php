@@ -15,8 +15,8 @@ $comi= $_POST['comi'];
 
 
 
-$sql = "INSERT INTO ingreso (Documento, Nombre, Apellido, Correo, Telefono, Fecha_ingreso, Id_juego, Id_comida) 
-        VALUES ('$usu', '$nom', '$ape', '$cor', '$tel', '$fec', '$jue', '$comi)";
+$sql = "INSERT INTO ingreso (Documento, Nombre, Apellido, Correo, Telefono, Fecha_ingreso, Id_juego, Id_comida)
+        VALUES ('$usu', '$nom', '$ape', '$cor', '$tel', '$fec', '$jue', '$comi')";
 
 
 if ($con->query($sql) === TRUE) {
@@ -27,3 +27,5 @@ if ($con->query($sql) === TRUE) {
 
 
 $con->close();
+
+?>

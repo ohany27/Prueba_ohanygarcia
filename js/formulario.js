@@ -16,9 +16,7 @@ const campos = {
 	apellido: false,
 	correo: false,
 	telefono: false,
-	fecha: false,
-	juego: false,
-	comida: false
+	
 }
 
 const validarFormulario = (e) => {
@@ -37,15 +35,6 @@ const validarFormulario = (e) => {
 		break;
 		case "telefono":
 			validarCampo(expresiones.telefono, e.target, 'telefono');
-		break;
-		case "fecha":
-		 	validarCampo(expresiones.fecha, e.target, 'fecha');
-		break;
-		case "juego":
-		 	validarCampo(expresiones.juego, e.target, 'juego');
-		break;
-		case "comida":
-		 	validarCampo(expresiones.comida, e.target, 'comida');
 		break;
 		
 	}
@@ -69,27 +58,6 @@ const validarCampo = (expresion, input, campo) => {
 	}
 }
 
-const validarPassword2 = () => {
-	const inputPassword1 = document.getElementById('password');
-	const inputPassword2 = document.getElementById('password2');
-
-	if(inputPassword1.value !== inputPassword2.value){
-		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-correcto');
-		document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');
-		document.querySelector(`#grupo__password2 i`).classList.remove('fa-check-circle');
-		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.add('formulario__input-error-activo');
-		campos['password'] = false;
-	} else {
-		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-correcto');
-		document.querySelector(`#grupo__password2 i`).classList.remove('fa-times-circle');
-		document.querySelector(`#grupo__password2 i`).classList.add('fa-check-circle');
-		document.querySelector(`#grupo__password2 .formulario__input-error`).classList.remove('formulario__input-error-activo');
-		campos['password'] = true;
-	}
-}
-
 inputs.forEach((input) => {
 	input.addEventListener('keyup', validarFormulario);
 	input.addEventListener('blur', validarFormulario);
@@ -103,14 +71,14 @@ formulario.addEventListener('submit', (e) => {
 		var cor = document.getElementById('correo').value;
 		var tel = document.getElementById('telefono').value;
 		var fec = document.getElementById('fecha').value;
-		var jue = document.getElementById('juegos').value;
+		var jue = document.getElementById('juego').value;
 		var comi = document.getElementById('comida').value;
 
 	const terminos = document.getElementById('terminos');
-	if(campos.documento && campos.nombre && campos.correo && campos.telefono  && terminos.fecha ){
+	if(campos.usuario && campos.nombre && campos.correo && campos.telefono  && terminos.checked ){
 		formulario.reset();
 		console.log(doc);console.log(nom);console.log(ape);console.log(cor);console.log(tel);console.log(fec);console.log(jue);console.log(comi)
-		$.post ("registro.php?cod=datos",{doc: doc, nom: nom, ape: ape, cor: cor, tel: tel,fec: fec, jue: jue, comb: comb, }, function(document){$("#mensaje").html(document);
+		$.post ("registro.php?cod=datos",{doc: doc, nom: nom, ape: ape, cor: cor, tel: tel,fec: fec, jue: jue, comi: comi }, function(document){$("#mensaje").html(document);
 		
 		}),
 		
