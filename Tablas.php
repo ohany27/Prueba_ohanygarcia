@@ -34,7 +34,7 @@
         <tbody>
             <?php
             // Consulta de Empleados
-            $consulta = "SELECT * FROM ingreso ORDER BY ingreso.Fecha_ingreso" ;
+            $consulta = "SELECT * FROM ingreso, comida, juego WHERE ingreso.Id_juego = juego.Id_juego AND ingreso.Id_comida = Comida.Id_comida ORDER BY ingreso.Fecha_ingreso" ;
             $resultado = $con->query($consulta);
 
             while ($fila = $resultado->fetch()) {
@@ -46,8 +46,8 @@
                     <td>' . $fila["Correo"] . '</td>
                     <td>' . $fila["Telefono"] . '</td>
                     <td>' . $fila["Fecha_ingreso"] . '</td>
-                    <td>' . $fila["Id_juego"] . '</td>
-                    <td>' . $fila["Id_comida"] . '</td>
+                    <td>' . $fila["Juego"] . '</td>
+                    <td>' . $fila["Comida"] . '</td>
                 </tr>';
             }
             ?>

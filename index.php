@@ -146,6 +146,13 @@
         
         </form>
    </main>
+   <div class="row mt-3">
+        <div class="col-md-6 text-start">
+            <form action="Tablas.php">
+                <input type="submit" value="Ver Tablas" class="btn btn-secondary"/>
+            </form>
+        </div>
+    </div>
    <script src="js/jquery.js"></script>
    <script src="js/formulario.js"></script>
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
