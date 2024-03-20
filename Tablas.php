@@ -13,6 +13,7 @@
     <title>Listado de Empleados</title>
     <!-- Agregar enlaces a los archivos CSS y JavaScript de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/css2.css"> <!
 </head>
 <body>
 

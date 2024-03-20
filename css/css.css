@@ -4,7 +4,7 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	background: #E5E5E5;
+	background: #b9dff5;
 }
 
 main {
@@ -59,7 +59,7 @@ main {
 }
 
 .formulario__input:focus {
-	border: 3px solid #0075FF;
+	border: 3px solid #ff7300;
 	outline: none;
 	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
 }

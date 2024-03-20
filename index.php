@@ -13,6 +13,8 @@
 	<title>Validación de Formulario con Javascript</title>
 	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/css.css"> <!-- Tu archivo CSS personalizado -->
 	<link rel="stylesheet" href="css/css.css">
 </head>
 
@@ -86,8 +88,8 @@
                 </div>
 
                 <!-- div para capturar el Juego Favorito -->
-                <div class="" id="grupo__juego">
-                    <label for="id_tip_use" class="formulario__label"> Atracciones </label>
+                <div class="formulario__grupo-select" id="grupo__juego">
+                    <label for="juego" class="formulario__label"> Atracciones </label>
 				    <div class="formulario__grupo-select">                 
                     <select class="" name="juego" id="juego" required >
                         <option value="">*** Seleccione Juego Favorito ***</option>
@@ -106,7 +108,7 @@
                 
                 <!-- div para capturar la comida -->
                 <div class="" id="grupo__comida">
-                    <label for="id_tip_use" class="formulario__label"> Comida </label>
+                    <label for="comida" class="formulario__label"> Comida </label>
 				    <div class="formulario__grupo-select">                 
                     <select class="" name="comida" id="comida" required >
                         <option value="">*** Seleccione Comida ***</option>
@@ -142,17 +144,18 @@
                 <button type="submit" class="formulario__btn" name="save" value="guardar" >Enviar</button>
                 <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
             </div>
-                
-        
         </form>
-   </main>
-   <div class="row mt-3">
-        <div class="col-md-6 text-start">
+
+        <div class="row mt-5">
+        <div class="col-md-1 text-start">
             <form action="Tablas.php">
-                <input type="submit" value="Ver Tablas" class="btn btn-secondary"/>
+                <input type="submit" value="Ver Registros" class="btn btn-secondary"/>
             </form>
         </div>
     </div>
+
+   </main>
+
    <script src="js/jquery.js"></script>
    <script src="js/formulario.js"></script>
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
