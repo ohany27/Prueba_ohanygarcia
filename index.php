@@ -73,7 +73,7 @@
                         <input onkeyup="minus(this);" type="text" class="formulario__input" name="telefono" id="telefono" placeholder="Telefono">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p class="formulario__input-error">El Telefono solo puede contener numeros.</p>
+                    <p class="formulario__input-error">El Telefono tiene que ser de 10 a 12 digitos y solo puede contener numeros.</p>
                 </div>
 
                 <!-- div para capturar fecha de entrada -->
@@ -86,7 +86,7 @@
                 </div>
 
                 <!-- div para capturar el Juego Favorito -->
-                <div class="" id="grupo__telefono">
+                <div class="" id="grupo__juego">
                     <label for="id_tip_use" class="formulario__label"> Atracciones </label>
 				    <div class="formulario__grupo-select">                 
                     <select class="" name="juego" id="juego" required >
@@ -105,7 +105,7 @@
 
                 
                 <!-- div para capturar la comida -->
-                <div class="" id="grupo__telefono">
+                <div class="" id="grupo__comida">
                     <label for="id_tip_use" class="formulario__label"> Comida </label>
 				    <div class="formulario__grupo-select">                 
                     <select class="" name="comida" id="comida" required >
