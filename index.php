@@ -23,7 +23,7 @@
                 <!-- div para capturar el Documento -->
 
                 <div class="" id="grupo__usuario">
-                    <label for="docu" class="formulario__label"> Documento</label>
+                    <label for="docu" class="formulario__label">Documento</label>
                         <div class="formulario__grupo-input">
                             <input type="text" class="formulario__input" name="documento" id="documento" placeholder="Documento">
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
@@ -78,6 +78,16 @@
                     <p class="formulario__input-error">El Telefono solo puede contener numeros.</p>
                 </div>
 
+                <!-- div para capturar fecha de entrada -->
+                <div class="" id="grupo__correo">
+                    <label for="fecha" class="formulario__label">Fecha </label>
+                    <div class="formulario__grupo-input">
+                        <input onkeyup="minus(this);" type="date" class="formulario__input" name="Fecha" id="Fecha">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El Telefono solo puede contener numeros.</p>
+                </div>
+
                 <!-- div para capturar el Juego Favorito -->
                 <div class="" id="grupo__telefono">
                     <label for="id_tip_use" class="formulario__label"> Atracciones </label>
@@ -100,7 +110,7 @@
                 <div class="" id="grupo__telefono">
                     <label for="id_tip_use" class="formulario__label"> Combos </label>
 				    <div class="formulario__grupo-select">                 
-                    <select class="" name="juego" id="juego" required >
+                    <select class="" name="combos" id="combos" required >
                         <option value="">*** Seleccione Combos ***</option>
                             <?php
                                 $statement = $con -> prepare ("SELECT * FROM combos");
@@ -117,7 +127,7 @@
                 <div class="" id="grupo_telefono">
                     <label for="id_tip_use" class="formulario__label"> Comida</label>
 				    <div class="formulario__grupo-select">
-                    <select class="" name="animal" id="animal" required >
+                    <select class="" name="comida" id="comida" required >
                         <option value="">** Seleccione la Comida **</option>
                            
                     </select>               
@@ -125,7 +135,14 @@
                 </div>  
 
 <!----------------------------------------------- Fin Select ----------------------------------------------->
-
+            <!-- Grupo: Terminos y Condiciones -->
+			<div class="formulario__grupo-terminos" id="grupo__terminos">
+				<label class="formulario__label">
+					<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+					Acepto los Terminos y Condiciones
+				</label>
+			</div>
+            
 			<div class="formulario__mensaje" id="formulario__mensaje">
 				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
 			</div>
@@ -160,10 +177,10 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            $('#especie').val(0);
+            $('#combos').val(0);
             recargarLista();
 
-            $('#especie').change(function(){
+            $('#combos').change(function(){
                 recargarLista();
             })
         })
@@ -173,10 +190,10 @@
        function recargarLista(){
         $.ajax({
             type:"POST",
-            url:"animal.php",
-            data:"especie=" + $('#especie').val(),
+            url:"comida.php",
+            data:"combos=" + $('#combos').val(),
             success:function(r){
-                $('#animal').html(r);
+                $('#comida').html(r);
             }
         })
        }

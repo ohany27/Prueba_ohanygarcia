@@ -2,31 +2,27 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	usuario: /^\d{6,11}$/, 
+	documento: /^\d{6,11}$/, 
 	nombre: /^[a-zA-ZÀ-ÿ\s]{3,15}$/, 
 	apellido: /^[a-zA-ZÀ-ÿ\s]{3,15}$/,
-	pin: /^\d{5,8}$/,  
-	password: /^[a-zA-Z0-9]{8,12}$/,
-	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
-	// telefono: /^\d{7,14}$/ 
+	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	telefono: /^\d{10,12}$/
 	
 }
 
 const campos = {
-	usuario: false,
+	documento: false,
 	nombre: false,
 	apellido: false,
-	pin: false,
-	password: false,
-	correo: false
-	// telefono: false
-	
+	correo: false,
+	telefono: false,
+	// fecha: false
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "usuario":
-			validarCampo(expresiones.usuario, e.target, 'usuario');
+		case "documento":
+			validarCampo(expresiones.usuario, e.target, 'documento');
 		break;
 		case "nombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre');
@@ -34,21 +30,14 @@ const validarFormulario = (e) => {
 		case "apellido":
 			validarCampo(expresiones.apellido, e.target, 'apellido');
 		break;
-		case "pin":
-			validarCampo(expresiones.pin, e.target, 'pin');
-		break;
-		case "password":
-			validarCampo(expresiones.password, e.target, 'password');
-			validarPassword2();
-		break;
-		case "password2":
-			validarPassword2();
-		break;
 		case "correo":
-			validarCampo(expresiones.correo, e.target, 'correo');
+			validarCampo(expresiones.pin, e.target, 'correo');
 		break;
-		// case "telefono":
-		// 	validarCampo(expresiones.telefono, e.target, 'telefono');
+		case "telefono":
+			validarCampo(expresiones.telefono, e.target, 'telefono');
+		break;
+		// case "fecha":
+		// 	validarCampo(expresiones.telefono, e.target, 'fecha');
 		// break;
 		
 	}
@@ -100,19 +89,21 @@ inputs.forEach((input) => {
 
 formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
-		var doc = document.getElementById('usuario').value;
+		var doc = document.getElementById('documento').value;
 		var nom = document.getElementById('nombre').value;
 		var ape = document.getElementById('apellido').value;
-		var pin = document.getElementById('pin').value;
-		var pas = document.getElementById('password').value;
-		var email = document.getElementById('correo').value;
-		var tip_usu = document.getElementById('id_tip_use').value;
+		var cor = document.getElementById('correo').value;
+		var tel = document.getElementById('telefono').value;
+		var fec = document.getElementById('fecha').value;
+		var jue = document.getElementById('juegos').value;
+		var comb = document.getElementById('combos').value;
+		var comi = document.getElementById('comida').value;
 
 	const terminos = document.getElementById('terminos');
-	if(campos.usuario && campos.nombre && campos.password && campos.correo  && terminos.checked ){
+	if(campos.documento && campos.nombre && campos.correo && campos.telefono  && terminos.fecha ){
 		formulario.reset();
-		console.log(doc);console.log(nom);console.log(ape);console.log(pin);console.log(pas);console.log(email);console.log(tip_usu);
-		$.post ("registro.php?cod=datos",{doc: doc, nom: nom, ape: ape, pin: pin, pas: pas,email: email, tip_usu: tip_usu}, function(document){$("#mensaje").html(document);
+		console.log(doc);console.log(nom);console.log(ape);console.log(cor);console.log(tel);console.log(fec);console.log(jue);console.log(comb);console.log(comi);
+		$.post ("registro.php?cod=datos",{doc: doc, nom: nom, ape: ape, cor: cor, tel: tel,fec: fec, jue: jue, comb: comb, comi:comi}, function(document){$("#mensaje").html(document);
 		
 		}),
 		
