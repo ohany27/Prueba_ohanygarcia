@@ -20,12 +20,10 @@
    <main>
         <form  method="POST" autocomplete="off" class="formulario" id="formulario">
 
-                <!-- div para capturar el Documento -->
-
                 <div class="" id="grupo__usuario">
-                    <label for="docu" class="formulario__label">Documento</label>
+                    <label for="usuario" class="formulario__label">Documento</label>
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="documento" id="documento" placeholder="Documento">
+                            <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="Documento">
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         </div>
                         <p class="formulario__input-error">
@@ -56,7 +54,7 @@
                         Los apellidos del usuario tienen que ser de 3 a 15 dígitos y solo puede contener letras.</p>
                 </div>
 
-                
+
 
                 <!-- div para capturar el Correo Electronico -->
                 <div class="" id="grupo__correo">
@@ -69,7 +67,7 @@
                 </div>
 
                 <!-- div para capturar el Telefono -->
-                <div class="" id="grupo__correo">
+                <div class="" id="grupo__telefono">
                     <label for="telefono" class="formulario__label">Telefono </label>
                     <div class="formulario__grupo-input">
                         <input onkeyup="minus(this);" type="text" class="formulario__input" name="telefono" id="telefono" placeholder="Telefono">
@@ -85,7 +83,6 @@
                         <input onkeyup="minus(this);" type="date" class="formulario__input" name="Fecha" id="Fecha">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                    <p class="formulario__input-error">El Telefono solo puede contener numeros.</p>
                 </div>
 
                 <!-- div para capturar el Juego Favorito -->
@@ -106,34 +103,26 @@
                     </div>
                 </div>
 
-                <!-- div para capturar el combo -->
+                
+                <!-- div para capturar la comida -->
                 <div class="" id="grupo__telefono">
-                    <label for="id_tip_use" class="formulario__label"> Combos </label>
+                    <label for="id_tip_use" class="formulario__label"> Comida </label>
 				    <div class="formulario__grupo-select">                 
-                    <select class="" name="combos" id="combos" required >
-                        <option value="">*** Seleccione Combos ***</option>
+                    <select class="" name="juego" id="juego" required >
+                        <option value="">*** Seleccione Comida ***</option>
                             <?php
-                                $statement = $con -> prepare ("SELECT * FROM combos");
+                                $statement = $con -> prepare ("SELECT * FROM comida");
                                 $statement -> execute();
                                 while ($row = $statement -> fetch(PDO::FETCH_ASSOC))
                                 {
-                                echo "<option value=" . $row['Id_tip_com'] . ">" . $row['Tip_com']. "</option>";
+                                echo "<option value=" . $row['Id_comida'] . ">" . $row['Comida']. "</option>";
                                 }
                                 ?>
                     </select>
                     </div>
-                </div>  
+                </div>
 
-                <div class="" id="grupo_telefono">
-                    <label for="id_tip_use" class="formulario__label"> Comida</label>
-				    <div class="formulario__grupo-select">
-                    <select class="" name="comida" id="comida" required >
-                        <option value="">** Seleccione la Comida **</option>
-                           
-                    </select>               
-                    </div>
-                </div>  
-
+            
 <!----------------------------------------------- Fin Select ----------------------------------------------->
             <!-- Grupo: Terminos y Condiciones -->
 			<div class="formulario__grupo-terminos" id="grupo__terminos">
@@ -142,7 +131,7 @@
 					Acepto los Terminos y Condiciones
 				</label>
 			</div>
-            
+
 			<div class="formulario__mensaje" id="formulario__mensaje">
 				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
 			</div>
